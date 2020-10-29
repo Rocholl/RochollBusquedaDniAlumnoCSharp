@@ -25,7 +25,7 @@ namespace Modelo
         }
   
         public static MySqlConnection Conectar()
-        {   if (_singleton = null)
+        {  if (_singleton == null)
             {
                 String user = "root";
                 String password = "";
@@ -47,9 +47,11 @@ namespace Modelo
                 {
                     MessageBox.Show(ex);
                 }
-                return connection;
+                
             }
             else { MessageBox.Show("Una instacia de la conexion ya esta activa"); }
+            return connection;
         }
+      
     }
 }
