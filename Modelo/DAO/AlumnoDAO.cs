@@ -4,117 +4,110 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.Text;
-using Xceed.Wpf.Toolkit;
+using System.Windows;
+using System.Windows.Forms;
 
 namespace Modelo.DAO
 {
-    class AlumnoDAO
+   public class AlumnoDAO
     {
-        Connect connect;
+        
         DataTable tabla = new DataTable();
         Alumno alumno;
         MySqlCommand command;
-        MySqlConnection conn;
+        
         MySqlDataReader leer;
         int numeroDeLibros;
-        private DataTable GetAllAlumnos()
+        
+        private DataTable GetAllAlumnos(MySqlConnection con)
         {
-            try {
-                connect = new Connect();
-                connect.Conectar();
-                connect.Connection1.Open();
-                conn = connect.Connection1;
-
-                command = new MySqlCommand("select * from Alumnos;", conn);
+            try {            
+                command = new MySqlCommand("select * from Alumnos;", con);
                 leer = command.ExecuteReader();
                 tabla.Load(leer);
             } catch (Exception ex) {
-                MessageBox.Show(ex);
+              MessageBox.Show(ex);
             }
-            finally {
-                connect.Connection1.Close();
-                
-            }
+           
             return tabla;
         }
         private Alumno CrearAlumno(MySqlDataReader leer) {
             alumno = new Alumno(leer.GetString(0), leer.GetString(1), leer.GetString(2), leer.GetString(3));
             return alumno;
         }
-        private Alumno GetAlumno(String Dni)
+        private Alumno GetAlumno(String Dni,MySqlConnection con)
         {
             try
             {
-                connect = new Connect();
-            connect.Conectar();
-            connect.Connection1.Open();
+             
 
-           conn = connect.Connection1;
-            command = new MySqlCommand("SELECT * FROM Alumnos WHERE Dni=@val1", conn);
-            command.Parameters.AddWithValue("@val1", Dni);
-            command.Prepare();
-            leer = command.ExecuteReader();
-            }
-              catch (Exception ex) {
-                MessageBox.Show(ex);
-            }
-              finally {
-                connect.Connection1.Close();
-                
-            }
-            return this.CrearAlumno(leer);
-
-            
-        }
-        private int GetAlumnoLibros(String Dni)
-        {
-            try
-            {
-                connect = new Connect();
-                connect.Conectar();
-                connect.Connection1.Open();
-
-                conn = connect.Connection1;
-                command = new MySqlCommand("SELECT COUNT(codLibros) FROM Prestamos WHERE Dni=@val1", conn);
+               
+                command = new MySqlCommand("SELECT * FROM Alumnos WHERE Dni=@val1", con);
                 command.Parameters.AddWithValue("@val1", Dni);
                 command.Prepare();
                 leer = command.ExecuteReader();
-                 numeroDeLibros = leer.GetInt32(0);
+            }
+            catch (Exception ex) {
+                MessageBox.Show(ex);
+            }
+         
+            return this.CrearAlumno(leer);
+
+
+        }
+        private int GetAlumnoLibros(String Dni, MySqlConnection con)
+        {
+            try
+            {
+              
+
+               
+                command = new MySqlCommand("SELECT COUNT(codLibros) FROM Prestamos WHERE Dni=@val1", con);
+                command.Parameters.AddWithValue("@val1", Dni);
+                command.Prepare();
+                leer = command.ExecuteReader();
+                numeroDeLibros = leer.GetInt32(0);
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex);
             }
-            finally
-            {
-                connect.Connection1.Close();
-
-            }
+           
             return numeroDeLibros;
 
 
         }
-        private void DeleteAlumno(String Dni) 
+        private void DeleteAlumno(String Dni, MySqlConnection con)
         {
 
-            if (this.GetAlumnoLibros(Dni) <= 0)
+            if (this.GetAlumnoLibros(Dni,con) <= 0)
             {
                 try
                 {
-                    connect = new Connect();
-                    connect.Conectar();
-                    connect.Connection1.Open();
-                    conn = connect.Connection1;
+                    
+                    command = new MySqlCommand("DELETE FROM Alumno WHERE Dni=@val1", con);
+                    command.Parameters.AddWithValue("@val1", Dni);
+                    command.Prepare();
+                    leer = command.ExecuteReader();
+
+
 
 
 
 
 
                 }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("" + ex);
+                }
+               
            } else
             {
-                MessageBox.Show("No es posible crear el alumno ya que posee "+ this.GetAlumnoLibros(Dni)+"libros en prestamo");
+                MessageBox.Show("No es posible crear el alumno ya que posee " + this.GetAlumnoLibros(Dni,con) + "libros en prestamo");
 
             }
+        }
     }
+}
 

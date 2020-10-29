@@ -6,7 +6,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Modelo\Modelo.csproj" />
-    <ProjectReference Include="..\Vista\Vista.csproj" />
   </ItemGroup>
 
 </Project>

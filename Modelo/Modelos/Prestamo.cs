@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Modelo
 {
-    class Prestamo
+  public  class Prestamo
     {
         public Prestamo(string id, string codAlumno, string codLibros, DateTime fechaPrestamo, DateTime fechaDevolucion, string estado)
         {

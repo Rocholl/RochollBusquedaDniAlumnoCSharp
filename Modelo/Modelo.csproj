@@ -5,12 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Extended.Wpf.Toolkit" Version="4.0.1" />
     <PackageReference Include="MySql.Data" Version="8.0.22" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\Vista\Vista.csproj" />
   </ItemGroup>
 
 </Project>
