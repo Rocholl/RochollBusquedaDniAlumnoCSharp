@@ -89,6 +89,10 @@
     <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\Vista\Vista\Vista.csproj">
+      <Project>{668ec26f-6da5-4de4-a6df-f4e40416ff0d}</Project>
+      <Name>Vista</Name>
+    </ProjectReference>
     <ProjectReference Include="..\View\Model.csproj">
       <Project>{dc166403-3235-4325-831a-81169caffba5}</Project>
       <Name>Model</Name>

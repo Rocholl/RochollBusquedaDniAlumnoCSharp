@@ -12,14 +12,14 @@ namespace Model.DAO
     public class AlumnoDAO
     {
 
-        DataTable tabla = new DataTable();
+        DataTable tabla;
         Alumno alumno;
         MySqlCommand command;
 
         MySqlDataReader leer;
         int numeroDeLibros;
 
-        private DataTable GetAllAlumnos(MySqlConnection con)
+       public DataTable GetAllAlumnos(MySqlConnection con)
         {
             try
             {
@@ -30,7 +30,7 @@ namespace Model.DAO
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex);
+                MessageBox.Show(ex.ToString());
             }
 
             return tabla;
@@ -40,7 +40,7 @@ namespace Model.DAO
             alumno = new Alumno(leer.GetString(0), leer.GetString(1), leer.GetString(2), leer.GetString(3));
             return alumno;
         }
-        private Alumno GetAlumno(String Dni, MySqlConnection con)
+        public Alumno GetAlumno(String Dni, MySqlConnection con)
         {
             try
             {
@@ -54,7 +54,7 @@ namespace Model.DAO
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex);
+                MessageBox.Show(ex.ToString());
             }
 
             return this.CrearAlumno(leer);
@@ -76,14 +76,14 @@ namespace Model.DAO
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex);
+                MessageBox.Show(ex.ToString());
             }
 
             return numeroDeLibros;
 
 
         }
-        private void DeleteAlumno(String Dni, MySqlConnection con)
+       public void DeleteAlumno(String Dni, MySqlConnection con)
         {
 
             if (this.GetAlumnoLibros(Dni, con) <= 0)

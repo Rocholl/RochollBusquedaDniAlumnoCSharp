@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Controller", "Controller\Co
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Model", "View\Model.csproj", "{DC166403-3235-4325-831A-81169CAFFBA5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vista", "..\..\Vista\Vista\Vista.csproj", "{668EC26F-6DA5-4DE4-A6DF-F4E40416FF0D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{DC166403-3235-4325-831A-81169CAFFBA5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DC166403-3235-4325-831A-81169CAFFBA5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DC166403-3235-4325-831A-81169CAFFBA5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{668EC26F-6DA5-4DE4-A6DF-F4E40416FF0D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{668EC26F-6DA5-4DE4-A6DF-F4E40416FF0D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{668EC26F-6DA5-4DE4-A6DF-F4E40416FF0D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{668EC26F-6DA5-4DE4-A6DF-F4E40416FF0D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

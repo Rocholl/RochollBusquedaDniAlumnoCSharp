@@ -17,10 +17,13 @@ namespace Model
             Apellido2 = apellido2;
         }
 
-        private String Dni { get => dni; set => dni = value; }
-        private String Nombre { get => nombre; set => nombre = value; }
-        private String Apellido1 { get => apellido1; set => apellido1 = value; }
-        private String Apellido2 { get => apellido2; set => apellido2 = value; }
-
+        private String Dni;
+        private String Nombre;
+        private String Apellido1;
+        private String Apellido2;
+        public string Dni1 { get => Dni; set => Dni = value; }
+        public string Nombre1 { get => Nombre; set => Nombre = value; }
+        public string Apellido11 { get => Apellido1; set => Apellido1 = value; }
+        public string Apellido21 { get => Apellido2; set => Apellido2 = value; }
     }
 }
