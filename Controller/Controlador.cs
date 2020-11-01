@@ -25,6 +25,7 @@ namespace Controller
             this.con = Connect.Conectar();
             this.vistaPrincipal = new Form3();
             this.InicializarEventos();
+            this.RellenarTabla();
         }
         private void RellenarTabla()
         {

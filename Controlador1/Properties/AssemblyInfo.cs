@@ -4,12 +4,12 @@ using System.Runtime.InteropServices;
 
 // La información general de un ensamblado se controla mediante el siguiente 
 // conjunto de atributos. Cambie estos valores de atributo para modificar la información
-// asociada a un ensamblado.
-[assembly: AssemblyTitle("Controller")]
+// asociada con un ensamblado.
+[assembly: AssemblyTitle("Controlador1")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Controller")]
+[assembly: AssemblyProduct("Controlador1")]
 [assembly: AssemblyCopyright("Copyright ©  2020")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // El siguiente GUID sirve como id. de typelib si este proyecto se expone a COM.
-[assembly: Guid("bf222a53-e614-4531-bdb4-fc0c3829f63e")]
+[assembly: Guid("78cca322-2c6e-4ef9-97b2-2469d66d046d")]
 
 // La información de versión de un ensamblado consta de los cuatro valores siguientes:
 //
